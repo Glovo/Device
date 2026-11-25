@@ -2,17 +2,17 @@
 
 <img src="Source/Asset/device.png" alt="Device" />
 
-# 📚 Device
+# Device
 
 **Detects the device model, type and screen size at runtime · iOS · macOS**
 
 Glovo's fork of [`Ekhoo/Device`](https://github.com/Ekhoo/Device): a small Swift framework with no dependencies. It reads the hardware model identifier and screen metrics and maps them to enums. It is **not** a service: it has no backend, no runtime config and no CI. Glovo's own changes (iPhone 13 and iPhone 14 models) exist only in this repo, so apps must **install it from this Git URL**, not from upstream.
 
-[![Swift](https://img.shields.io/badge/Swift-5.0-F05138?logo=swift&logoColor=white)](Device.podspec)
+[![Swift](https://img.shields.io/badge/Swift-F05138?logo=swift&logoColor=white)](Device.podspec)
 [![iOS](https://img.shields.io/badge/iOS-8.0%2B-000000?logo=apple&logoColor=white)](Device.podspec)
 [![macOS](https://img.shields.io/badge/macOS-10.10%2B-000000?logo=apple&logoColor=white)](Device.podspec)
 <br/>
-[![podspec](https://img.shields.io/badge/podspec-3.4.0-EE3322?logo=cocoapods&logoColor=white)](Device.podspec)
+[![podspec](https://img.shields.io/badge/podspec-EE3322?logo=cocoapods&logoColor=white)](Device.podspec)
 [![Carthage](https://img.shields.io/badge/Carthage-compatible-4BC51D)](Device.xcodeproj/xcshareddata/xcschemes)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 [![Fork](https://img.shields.io/badge/fork_of-Ekhoo%2FDevice-lightgrey?logo=github)](https://github.com/Ekhoo/Device)
@@ -50,12 +50,12 @@ This fork has 7 commits that upstream doesn't have (podspec version bumps, then 
 
 | Call | Returns | iOS | macOS | Notes |
 |---|---|---|---|---|
-| `Device.version()` | `Version` on iOS · `String` on macOS | ✅ | ✅ | macOS returns text like `macBookPro 15.0-inch`, not an enum |
-| `Device.type()` | `Type` | ✅ | ✅ | iPhone / iPad / iPod / simulator, or the Mac family |
-| `Device.size()` | `Size` | ✅ | ✅ | `Size` supports `==`, `<` and `>` |
-| `Device.isRetina()` | `Bool` | ✅ | — | `UIScreen.main.scale > 1.0` |
-| `Device.isPad()` · `isPhone()` · `isPod()` · `isSimulator()` | `Bool` | ✅ | — | Shortcuts over `type()` |
-| `Device.isEqualToScreenSize(_:)` · `isLargerThanScreenSize(_:)` · `isSmallerThanScreenSize(_:)` | `Bool` | ✅ | — | **Deprecated**: use `==`, `>`, `<` instead |
+| `Device.version()` | `Version` on iOS · `String` on macOS | yes | yes | macOS returns text like `macBookPro 15.0-inch`, not an enum |
+| `Device.type()` | `Type` | yes | yes | iPhone / iPad / iPod / simulator, or the Mac family |
+| `Device.size()` | `Size` | yes | yes | `Size` supports `==`, `<` and `>` |
+| `Device.isRetina()` | `Bool` | yes | — | `UIScreen.main.scale > 1.0` |
+| `Device.isPad()` · `isPhone()` · `isPod()` · `isSimulator()` | `Bool` | yes | — | Shortcuts over `type()` |
+| `Device.isEqualToScreenSize(_:)` · `isLargerThanScreenSize(_:)` · `isSmallerThanScreenSize(_:)` | `Bool` | yes | — | **Deprecated**: use `==`, `>`, `<` instead |
 
 ### How detection works
 
@@ -339,7 +339,7 @@ Run `carthage update` to build the framework, then drag the built `Device.framew
 
 ```text
 .
-├── Source/                        ⭐ library code; the only code that ships
+├── Source/                        source of truth: library code; the only code that ships
 │   ├── Version.swift              # Version enum: every known iPhone / iPad / iPod model
 │   ├── Size.swift                 # Size enum and its ==, < operators
 │   ├── Type.swift                 # Type enum: iOS device kinds and Mac families
